@@ -80,7 +80,7 @@ body {
   align-items: flex-start;
 }
 .fixed-section {
-  width: 312px;
+  min-width: 312px;
   border: 1px solid black;
   background: #161616;
   border-radius: 8px;
@@ -117,13 +117,17 @@ ul li a {
 .item-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  flex: 1;
+  max-width: 985px;
+  width: 100%;
   grid-gap: 24px;
 }
 
 .single-item {
   border: 1px solid #e8e8e8;
   border-radius: 10px;
+}
+.single-item img {
+  width: 100%;
 }
 .foot {
   display: flex;
@@ -216,41 +220,139 @@ footer ul li a {
   margin-left: 30px;
   color: #b9b9b9;
 }
+.view-all {
+  display: none;
+}
 /* ----------media queries---------- */
+@media only screen and (max-width: 1199px) {
+  .item-wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+  .banner img {
+    max-width: 470px;
+    max-height: 505px;
+  }
+}
+@media only screen and (max-width: 991px) {
+  .container {
+    flex-direction: column;
+    padding: 30px 20px 30px 20px;
+    grid-gap: 16px;
+  }
+  .view-all {
+    display: block;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 70px;
+  }
+  .view-all a {
+    display: inline-block;
+    background: #dd0000;
+    border-radius: 5px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+    text-align: center;
+    padding: 12px 30px;
+    text-decoration: none;
+
+    color: #ffffff;
+  }
+  .banner img {
+    max-width: 329px;
+    max-height: 362px;
+    right: 20px;
+  }
+  .article p {
+    max-width: 386px;
+  }
+  .container-one {
+    padding: 100px 50px 100px 80px;
+  }
+  .fixed-section {
+    width: 100%;
+    background: transparent;
+    border: none;
+    text-align: center;
+  }
+  .item-wrapper {
+    grid-template-columns: 1fr 1fr;
+    padding: 0 30px 30px 30px;
+  }
+  .fixed-section ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px;
+  }
+  .fixed-section ul li {
+    display: block;
+    margin-bottom: 0;
+  }
+  .fixed-section ul li a {
+    padding: 17px 10px;
+    line-height: 1 !important;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .container-one {
+    margin: 30px 30px 0;
+  }
+  .article p {
+    font-size: 14px;
+    max-width: 250px;
+  }
+  .article h1 {
+    font-size: 40px;
+    max-width: 400px;
+  }
+  .banner img {
+    max-width: 290px;
+    max-height: 329px;
+    right: 20px;
+  }
+}
 @media only screen and (max-width: 575px) {
   .banner img {
-    position: unset;
-    max-width: 50%;
+    position: relative;
   }
   .container-one {
     padding-bottom: 0;
-    display: flex;
-    gap: 50px;
-    flex-direction: column;
     border-radius: 8px;
+    padding: 30px 40px 0px;
   }
   .article {
-    max-width: 500px;
-    width: 100%;
+    text-align: center;
   }
+  .article p,
   .article h1 {
-    font-size: 1.5em;
+    max-width: 100%;
   }
+
   .banner {
     width: 100%;
     align-items: center;
     justify-content: center;
     display: flex;
+    margin-top: 30px;
   }
   .container {
     flex-direction: column;
-    padding: 30px 82px 24px 83px;
     grid-gap: 16px;
+    padding: 0;
   }
   .fixed-section {
-    width: 100%;
+    width: 50%;
     background: lightblue;
     border: none;
+    margin: auto;
+  }
+  .fixed-section ul {
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+  }
+  .fixed-section ul li {
+    flex-direction: column;
+    display: block;
   }
   .item-wrapper {
     grid-template-columns: 1fr;
@@ -262,5 +364,40 @@ footer ul li a {
   }
   .icon ul li {
     display: inline-block;
+  }
+}
+#view-all {
+  display: none;
+}
+/* ------upcoming-event er media querie----- */
+@media only screen and (max-width: 991px) {
+  .upcoming-event {
+    grid-template-columns: 1fr 1fr;
+    padding: 0 30px 30px 30px;
+  }
+  #view-all {
+    display: block;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 70px;
+  }
+  #view-all a {
+    display: inline-block;
+    background: #dd0000;
+    border-radius: 5px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+    text-align: center;
+    padding: 12px 30px;
+    text-decoration: none;
+
+    color: #ffffff;
+  }
+}
+@media only screen and (max-width: 991px) {
+  .upcoming-event {
+    grid-template-columns: 1fr;
+    padding: 0 20px 16px 20px;
   }
 }
